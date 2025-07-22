@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Ana",
+    "surname": "García",
+    "age": 22,
+    "dni": 1023456789,
+    "average": 8.5
+  },
+  {
+    "name": "Luis",
+    "surname": "Martinez",
+    "age": 21,
+    "dni": 1034567890,
+    "average": 7.9
+  },
+  {
+    "name": "Sofía",
+    "surname": "Rodriguez",
+    "age": 23,
+    "dni": 1045678901,
+    "average": 9.2
+  },
+  {
+    "name": "Carlos",
+    "surname": "Hernández",
+    "age": 20,
+    "dni": 1056789012,
+    "average": 6.8
+  },
+  {
+    "name": "Elena",
+    "surname": "López",
+    "age": 22,
+    "dni": 1067890123,
+    "average": 9.5
+  },
+  {
+    "name": "Javier",
+    "surname": "Pérez",
+    "age": 24,
+    "dni": 1078901234,
+    "average": 8.1
+  }
+]
