@@ -2,7 +2,7 @@
   <!-- User FullName -->
   <ng-container matColumnDef="fullname">
     <mat-header-cell *matHeaderCellDef> Full name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+    <mat-cell *matCellDef="let row"> {{row.name | fullname: row.surname}} </mat-cell>
   </ng-container>
 
   <!-- Age Definition -->
