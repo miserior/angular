@@ -1,38 +1,61 @@
- 
-<div class="delete-form">
-  <h2>Eliminar Estudiante</h2>
-  <form [formGroup]="studentForm" (ngSubmit)="onDelete()">
-    <div class="form-group">
-      <label for="dni">DNI:</label>
-      <input 
-        type="text" 
-        id="dni" 
-        formControlName="dni" 
-        placeholder="Ingrese DNI a eliminar">
-      <div *ngIf="studentForm.get('dni')?.invalid && studentForm.get('dni')?.touched" class="error">
-        DNI es requerido
+<div class="container mt-4">
+  <div class="card p-4 shadow-sm">
+    <h2 class="card-title text-center mb-4 text-danger">Eliminar Estudiante</h2>
+
+    <form [formGroup]="studentForm" (ngSubmit)="onDelete()">
+      <div class="mb-3">
+        <label for="dni" class="form-label">DNI:</label>
+        <input
+          type="text"
+          id="dni"
+          formControlName="dni"
+          class="form-control"
+          placeholder="Ingrese DNI a eliminar"
+          [class.is-invalid]="studentForm.get('dni')?.invalid && studentForm.get('dni')?.touched"
+        >
+        <div
+          *ngIf="studentForm.get('dni')?.invalid && studentForm.get('dni')?.touched"
+          class="invalid-feedback"
+        >
+          DNI es requerido
+        </div>
       </div>
-    </div>
 
-      
-<ng-template #noStudent>
-  <div class="error">Estudiante no encontrado</div>
-</ng-template>
+      <ng-template #noStudent>
+        <div class="alert alert-danger" role="alert">
+          Estudiante no encontrado.
+        </div>
+      </ng-template>
 
-     <div class="form-group">
-      <label for="descripcion">descripcion:</label>
-      <input 
-        type="text" 
-        id="descripcion" 
-        formControlName="descripcion" 
-        placeholder="Ingrese descripcion a eliminar">
-      <div *ngIf="studentForm.get('descripcion')?.invalid && studentForm.get('descripcion')?.touched" class="error">
-        descripcion es requerido
+      <div class="mb-3">
+        <label for="descripcion" class="form-label">Descripción:</label>
+        <input
+          type="text"
+          id="descripcion"
+          formControlName="descripcion"
+          class="form-control"
+          placeholder="Ingrese descripción a eliminar"
+          [class.is-invalid]="studentForm.get('descripcion')?.invalid && studentForm.get('descripcion')?.touched"
+        >
+        <div
+          *ngIf="studentForm.get('descripcion')?.invalid && studentForm.get('descripcion')?.touched"
+          class="invalid-feedback"
+        >
+          Descripción es requerida
+        </div>
       </div>
-    </div>
 
-    <button [disabled]="studentForm.invalid" type="submit" class="delete-btn">Eliminar Estudiante</button>
-  </form>
-
+      <div class="d-grid mt-4">
+        <button
+          [disabled]="studentForm.invalid"
+          type="submit"
+          class="btn btn-danger btn-lg"
+        >
+          <i class="bi bi-trash me-2"></i> Eliminar Estudiante
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 
   {{ studentForm.value | json }}
