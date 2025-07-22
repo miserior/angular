@@ -1,0 +1,29 @@
+<mat-table [dataSource]="students">
+  <!-- User FullName -->
+  <ng-container matColumnDef="fullname">
+    <mat-header-cell *matHeaderCellDef> Full name </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Age Definition -->
+  <ng-container matColumnDef="age">
+    <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.age}} </mat-cell>
+  </ng-container>
+
+  <!-- Dni Definition -->
+  <ng-container matColumnDef="dni">
+    <mat-header-cell *matHeaderCellDef> Dni </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.dni}} </mat-cell>
+  </ng-container>
+
+  <!-- Average Definition -->
+  <ng-container matColumnDef="average">
+    <mat-header-cell *matHeaderCellDef> Average </mat-header-cell>
+    <mat-cell *matCellDef="let row"> {{row.average}} </mat-cell>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
