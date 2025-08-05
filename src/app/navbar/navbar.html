@@ -1,21 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light h-100 d-flex flex-column">
-  <div class="container-fluid d-flex flex-column h-100 p-0">
-    <a class="navbar-brand text-center py-3 border-bottom" href="#">Acciones</a>
-    <div class="collapse navbar-collapse show d-flex flex-column flex-grow-1" id="navbarNavVertical">
-      <ul class="navbar-nav d-flex flex-column w-100">
-        <li class="nav-item w-100">
-          <a class="nav-link w-100 text-center py-3" (click)="navigate('students')">Ver lista estudiantes</a>
-        </li>
-        <li class="nav-item w-100">
-          <a class="nav-link w-100 text-center py-3" (click)="navigate('add')">Agregar</a>
-        </li>
-        <li class="nav-item w-100">
-          <a class="nav-link w-100 text-center py-3" (click)="navigate('delete')">Eliminar</a>
-        </li>
-        <li class="nav-item w-100">
-          <a class="nav-link w-100 text-center py-3" (click)="navigate('edit')">Modificar</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div class="navbar">
+  <h1 class="">Acciones</h1>
+  <ul class="navbar-nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/alumnos">Alumnos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/cursos">Cursos</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/inscripciones">Inscripciones</a>
+    </li>
+  </ul>
+</div>
