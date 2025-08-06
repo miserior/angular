@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
 import { AlumnosAPI } from './alumnos-api';
 import { Student } from '../../../shared/entities';
-import { JsonPipe } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
+import { Observable, switchMap } from 'rxjs';
+import { StudentsTable } from '../../students-table/students-table';
 
 @Component({
   selector: 'app-alumnos',
-  imports: [JsonPipe],
+  imports: [CommonModule, JsonPipe, StudentsTable],
   templateUrl: './alumnos.html',
-  styleUrl: './alumnos.css'
+  styleUrl: './alumnos.css',
 })
 export class Alumnos {
-  alumnos : Student[] = [];
-  constructor(private alumnosApi: AlumnosAPI) { }
+  alumnos$!: Observable<Student[]>;
+  constructor(private alumnosApi: AlumnosAPI) {}
   ngOnInit(): void {
-      this.alumnosApi.getAlumnos().subscribe(alumnos => {
-      this.alumnos = alumnos;
-    });
+    this.alumnos$ = this.alumnosApi.getAlumnos();
+  }
+
+  deleteStudent(student: Student) {
+    this.alumnos$ = this.alumnosApi
+      .deleteAlumno(student)
+      .pipe(switchMap(() => this.alumnosApi.getAlumnos()));
   }
 }

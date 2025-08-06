@@ -1,33 +1,41 @@
 <h2>Listado de estudiantes</h2>
 <div>
-<mat-table [dataSource]="students">
-  <!-- User FullName -->
-  <ng-container matColumnDef="fullname">
-    <mat-header-cell *matHeaderCellDef> Full name </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.name | fullname: row.surname}} </mat-cell>
-  </ng-container>
+  <mat-table [dataSource]="students">
+    <!-- User FullName -->
+    <ng-container matColumnDef="fullname">
+      <mat-header-cell *matHeaderCellDef> Full name </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.name | fullname: row.surname}} </mat-cell>
+    </ng-container>
 
-  <!-- Age Definition -->
-  <ng-container matColumnDef="age">
-    <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.age}} </mat-cell>
-  </ng-container>
+    <!-- Age Definition -->
+    <ng-container matColumnDef="age">
+      <mat-header-cell *matHeaderCellDef> Age </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.age}} </mat-cell>
+    </ng-container>
 
-  <!-- Dni Definition -->
-  <ng-container matColumnDef="dni">
-    <mat-header-cell *matHeaderCellDef> Dni </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.dni}} </mat-cell>
-  </ng-container>
+    <!-- Dni Definition -->
+    <ng-container matColumnDef="dni">
+      <mat-header-cell *matHeaderCellDef> Dni </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.dni}} </mat-cell>
+    </ng-container>
 
-  <!-- Average Definition -->
-  <ng-container matColumnDef="average">
-    <mat-header-cell *matHeaderCellDef> Average </mat-header-cell>
-    <mat-cell *matCellDef="let row"> {{row.average}} </mat-cell>
-  </ng-container>
+    <!-- Average Definition -->
+    <ng-container matColumnDef="average">
+      <mat-header-cell *matHeaderCellDef> Average </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.average}} </mat-cell>
+    </ng-container>
 
-  <!-- Header and Row Declarations -->
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-</mat-table>
-  
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button (click)="viewDetails(row)" mat-button color="primary">Ver</button>
+        <button (click)="deleteStudent(row)" mat-button color="primary">Borrar</button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
 </div>

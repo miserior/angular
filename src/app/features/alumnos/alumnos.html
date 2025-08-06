@@ -1,3 +1,10 @@
 <p>alumnos works!</p>
 
-{{ alumnos | json  }}
+
+<ng-container *ngIf="alumnos$ | async as alumnos">
+  <app-students-table (deleteEvent)="deleteStudent($event)" [students]="alumnos"></app-students-table>
+</ng-container>
+
+<ng-template #loading>
+    <p>Cargando...</p>
+</ng-template>

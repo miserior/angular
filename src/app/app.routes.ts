@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Alumnos } from './features/alumnos/alumnos';
 import { RoutePaths } from '../shared/pipes/routes';
+import { ViewStudent } from './features/alumnos/view-student/view-student';
 
 export const routes: Routes = [
     {
@@ -18,6 +19,10 @@ export const routes: Routes = [
     {
         path: RoutePaths.INSCRIPCIONES,
         loadComponent: () => import('./features/inscripciones/inscripciones').then(m => m.Inscripciones)
+    },
+    {
+        path: "view-student",
+        component: ViewStudent
     }
 
 ];
